@@ -13,6 +13,7 @@ public class TruncatedBlock
    */
   public TruncatedBlock(TextBlock tb, int width)
   {
+    //new TextBlock truncatedBlock = tb;
     this.width = width
     
   } // TruncatedBlock(TextBlock, int)
@@ -23,11 +24,11 @@ public class TruncatedBlock
   public String row(int i)
     throws Exception
   {
-    if (i != 0)
+    if (i < 0)
       {
         throw new Exception("Invalid row " + i);
       } // if the row is invalid
-    return this.input;
+    return this.row(i).substring(0, this.width);
   } // row(int)
 
   /**

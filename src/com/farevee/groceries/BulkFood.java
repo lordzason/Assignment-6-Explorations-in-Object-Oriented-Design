@@ -4,7 +4,7 @@ public class BulkFood
 {
   /*Fields*/
   String name;
-  Units unit; //What does this do? How does it do it?
+  Units unit;
   int pricePerUnit;
   int supply;
   
@@ -18,6 +18,9 @@ public class BulkFood
   }
   
   /*Methods*/
-  
+  public int getBulkFoodSupply()
+  {
+    return this.supply;
+  }
   
 }
