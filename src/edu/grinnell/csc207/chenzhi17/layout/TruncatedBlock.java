@@ -1,3 +1,7 @@
+/**
+ * Help from Eileen Fordham on understanding TextBlocks 
+ */
+
 package edu.grinnell.csc207.chenzhi17.layout;
 
 public class TruncatedBlock
@@ -6,16 +10,22 @@ public class TruncatedBlock
   /*Fields*/
   int width;
   int height;
-  String input;
+  TextBlock input;
 
   /**
    * Create a new truncated block of the specified width.
    */
   public TruncatedBlock(TextBlock tb, int width)
+  throws Exception
   {
-    //new TextBlock truncatedBlock = tb;
-    this.width = width
-    
+    if (width <= 0 || width >= tb.width())
+      {
+        throw new Exception("Entered width is not correct.");
+      }
+
+    this.width = width;
+    this.height = tb.height();
+    input = tb;
   } // TruncatedBlock(TextBlock, int)
 
   /**
@@ -28,7 +38,7 @@ public class TruncatedBlock
       {
         throw new Exception("Invalid row " + i);
       } // if the row is invalid
-    return this.row(i).substring(0, this.width);
+    return this.input.row(i).substring(0, this.width);
   } // row(int)
 
   /**
@@ -36,7 +46,7 @@ public class TruncatedBlock
    */
   public int height()
   {
-    return this.height();
+    return this.height;
   } // height()
 
   /**

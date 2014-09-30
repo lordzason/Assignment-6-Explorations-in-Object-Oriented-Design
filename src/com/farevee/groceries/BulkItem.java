@@ -17,57 +17,66 @@ public class BulkItem
   }
 
   /*Methods*/
+  //Get the Weight, including unit and amount
   public Weight getWeight()
   {
     return new Weight(this.unit, this.amount);
   }
 
-  public int getPrice()
-  {
-    return this.food.pricePerUnit * this.amount;
-  }
-
-  public String toString()
-  {
-    return (amount + " " + unit.name + " of " + food.name);
-  }
-
-  public boolean equals(BulkItem anotherBulkItem)
-  {
-    if ((this.food.name.equals(anotherBulkItem.food.name))
-        && (this.unit.name.equals(anotherBulkItem.unit.name)))
-        //&& (this.amount == anotherBulkItem.amount))
-      {
-        return Boolean.TRUE;
-      }
-    return Boolean.FALSE;
-  }
-
+  //Get the amount of weight
   @Override
   public int getWeightAmount()
   {
     return this.getWeight().amount;
   }
 
+  //Get the unit of weight
   @Override
   public Units getWeightUnit()
   {
     return this.unit;
   }
 
+  //Get the price
+  public int getPrice()
+  {
+    return this.food.pricePerUnit * this.amount;
+  }
+
+  //Creates a string for the name
+  public String toString()
+  {
+    return (amount + " " + unit.name + " of " + food.name);
+  }
+
+  //Gets the name
   @Override
   public String getName()
   {
     return this.food.name;
   }
-  
+
+  //Get the type of BulkFood
   public BulkFood getBulkFoodType()
   {
     return this.food;
   }
-  
+
+  //Get the amount of BulkItem
   public int getBulkItemAmount()
   {
     return this.amount;
   }
+
+  //Compares two BulkItem
+  public boolean equals(BulkItem anotherBulkItem)
+  {
+    if ((this.food.name.equals(anotherBulkItem.food.name))
+        && (this.unit.name.equals(anotherBulkItem.unit.name)))
+      {
+        return Boolean.TRUE;
+      }
+    return Boolean.FALSE;
+  }
+
 }

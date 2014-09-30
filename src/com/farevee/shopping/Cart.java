@@ -1,4 +1,8 @@
 /**
+ * Code works for the most part but does not work after merge()
+ * 
+ * Consulted Albert Owusu-Asare on LinkedList
+ * 
  * Reference on implementing Array Lists in Java:
  * http://www.tutorialspoint.com/java/java_linkedlist_class.htm
  * 
@@ -28,7 +32,6 @@ import com.farevee.groceries.Units;
 public class Cart
 {
   /*Fields*/
-  //Consulted Albert Owusu-Asare
   LinkedList<Item> shoppingCart = new LinkedList<Item>();
   int[] weightsArray = new int[4];
   //weightsArray[0] for pounds, weightsArray[1] for ounces
@@ -53,16 +56,22 @@ public class Cart
         numberOfThings += ((ManyPackages) itemToAdd).getCount();
         numberOfEntries++;
         totalPrice += itemToAdd.getPrice();
-
+        //System.out.println(itemToAdd.getName() + " costs " + itemToAdd.getPrice());
+        //System.out.println("Total cost is now " + totalPrice);
+        
         shoppingCart.add(itemToAdd);
+        System.out.println("Added " + itemToAdd.getName());
       }//if()
     else
       {
         numberOfThings++;
         numberOfEntries++;
         totalPrice += itemToAdd.getPrice();
+        //System.out.println(itemToAdd.getName() + " costs " + itemToAdd.getPrice());
+        //System.out.println("Total cost is now " + totalPrice);
 
         shoppingCart.add(itemToAdd);
+        System.out.println("Added " + itemToAdd.getName());
       }//else()
 
     //Update the weightsArray
@@ -189,7 +198,7 @@ public class Cart
   {
     for (int i = 0; i < shoppingCart.size(); i++)
       {
-        for (int j = 0; j < shoppingCart.size(); j++)
+        for (int j = 1; j < shoppingCart.size(); j++)
           {
             //If there are two packages, merge them into one ManyPackages 
             if ((shoppingCart.get(i) instanceof Package)

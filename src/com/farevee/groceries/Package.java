@@ -17,6 +17,7 @@ public class Package
   }
 
   /*Methods*/
+  //Information about the Package in a string
   @Override
   public String toString()
   {
@@ -24,6 +25,7 @@ public class Package
            + this.name;
   }
 
+  //Compares two Package
   public boolean equals(Package anotherPackage)
   {
     if ((this.name.compareTo(anotherPackage.name) == 0)
@@ -36,30 +38,35 @@ public class Package
     return Boolean.FALSE;
   }
 
+  //Get the Weight, unit and amount
   @Override
   public Weight getWeight()
   {
     return this.weight;
   }
 
+  //Get the price of the Package
   @Override
   public int getPrice()
   {
     return this.price;
   }
 
+  //Get the amount of weight
   @Override
   public int getWeightAmount()
   {
     return this.getWeight().amount;
   }
 
+  //Get the unit of weight
   @Override
   public Units getWeightUnit()
   {
     return this.getWeight().unit;
   }
 
+  //Get the name of the Package
   @Override
   public String getName()
   {

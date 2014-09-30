@@ -15,6 +15,7 @@ public class BulkContainer
   }
 
   /*Methods*/
+  //Information about the BulkContainer in a string
   @Override
   public String toString()
   {
@@ -22,9 +23,11 @@ public class BulkContainer
             + " of " + this.food.name);
   }
 
+  //Compares two BulkContainer
   public boolean equals(BulkContainer anotherBulkContainer)
   {
-    return ((this.equals(anotherBulkContainer)) && (this.container.compareTo(anotherBulkContainer.container) == 0));
+    return ((this.food.equals(anotherBulkContainer.food)) 
+        && (this.container.compareTo(anotherBulkContainer.container) == 0));
   }
 
 }

@@ -1,3 +1,7 @@
+/**
+ * NEEDS TO BE IMPLEMENTED
+ */
+
 package edu.grinnell.csc207.chenzhi17.layout;
 
 public class RightJustified

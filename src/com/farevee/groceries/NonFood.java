@@ -17,22 +17,26 @@ public class NonFood
   }
 
   /*Methods*/
+  //Get information about the NonFood
   @Override
   public String toString()
   {
-    return this.name;
+    return this.name + "costs " + this.price;
   }
 
+  //Get the price of the NonFood
   public int getPrice()
   {
-    return this.price * this.weight.amount;
+    return this.price;
   }
 
+  //Get the Weight of the NonFood, including unit and amount
   public Weight getWeight()
   {
     return this.weight;
   }
 
+  //Compares two NonFood
   public boolean equals(NonFood anotherNonFood)
   {
     if (((this.name).compareTo(anotherNonFood.name) == 0)
@@ -48,18 +52,21 @@ public class NonFood
       }
   }
 
+  //Get the amount of weight of NonFood
   @Override
   public int getWeightAmount()
   {
     return this.getWeight().amount;
   }
 
+  //Get the unit of weight of NonFood
   @Override
   public Units getWeightUnit()
   {
     return this.getWeight().unit;
   }
 
+  //Get the name of the NonFood
   @Override
   public String getName()
   {
