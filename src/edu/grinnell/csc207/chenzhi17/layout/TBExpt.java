@@ -62,15 +62,27 @@ public class TBExpt
     TBUtils.print(pen, centeredBlock3);
 
     //RightJustified test 1
-    /*TextBlock rightJustifiedBlock1 =
-        new VComposition(new TextLine("Hello"), new TextLine("Goodbye"));
-    TextBlock  rightJustifiedBlock2 =
-        new BoxedBlock(new RightJustified(centeredBlock, 11));
-    TBUtils.print(pen, centeredBlock2);*/
-    
-    //TextBlock rightJustifiedBlock = new RightJustified(centeredBlock3, 20);
-    //TBUtils.print(pen, rightJustifiedBlock);
+    TextBlock rJ1 = new RightJustified(new TextLine("Hello"), 11);
+    TextBlock rJ2 = new RightJustified(new TextLine("Goodbye"), 11);
+    TextBlock rightJustified1 = new BoxedBlock(new VComposition(rJ1, rJ2));
+    TBUtils.print(pen, rightJustified1);
 
+    //RightJustified test 2
+    TextBlock top1 = new CenteredBlock(new TextLine("Hello"), 11);
+    TextBlock bottom1 = new CenteredBlock(new TextLine("Goodbye"), 11);
+    TextBlock vTogether1 = new VComposition(top1, bottom1);
+    TextBlock rightJustified2 =
+        new BoxedBlock(new RightJustified(vTogether1, 11));
+    TBUtils.print(pen, rightJustified2);
+
+    //BlockPair test
+    TextBlock blockPair =
+        new BoxedBlock(new BlockPair(vTogether1));
+    TBUtils.print(pen, blockPair);
+    TextBlock blockPair1 =
+        new BoxedBlock(new BlockPair(centeredBlock3));
+    TBUtils.print(pen, blockPair1);
+    
     // Clean up after ourselves.
     pen.close();
   } // main(String[])

@@ -1,5 +1,10 @@
 /**
  * Consulted Eileen Fordham
+ * 
+ * Removing white spaces:
+ * http://stackoverflow.com/questions/5455794/removing-whitespace-from-strings-in-java
+ * http://www.tutorialspoint.com/java/java_string_replaceall.htm
+ * 
  */
 
 package edu.grinnell.csc207.chenzhi17.layout;
@@ -37,14 +42,14 @@ public class RightJustified
         throw new Exception("Cannot get row outside of bounds.");
       }
 
-    String text = this.block.row(i).toString();
-    int diff = this.desiredWidth - this.textWidth;
+    String newText = this.block.row(i).toString().replaceAll(" ","");
+    int diff = this.desiredWidth - newText.length();
     String buffer = "";
     for (int j = 0; j < diff; j++)
       {
         buffer = buffer.concat(" ");
       }
-    return text + buffer;
+    return newText + buffer;
 
   }
 
