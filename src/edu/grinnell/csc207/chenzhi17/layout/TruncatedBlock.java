@@ -38,7 +38,7 @@ public class TruncatedBlock
       {
         throw new Exception("Invalid row " + i);
       } // if the row is invalid
-    return this.input.row(i).substring(0, this.width);
+    return this.input.row(i).substring(0, input.row(i).length());
   } // row(int)
 
   /**

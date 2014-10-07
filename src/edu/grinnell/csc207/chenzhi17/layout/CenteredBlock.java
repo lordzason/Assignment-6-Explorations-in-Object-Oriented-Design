@@ -9,7 +9,7 @@ public class CenteredBlock
 {
   /*Fields*/
   int height;
-  int textWidth;
+  //int textWidth;
   int desiredWidth;
   TextBlock input;
 
@@ -23,7 +23,7 @@ public class CenteredBlock
       }
 
     this.height = textBlock.height();
-    this.textWidth = textBlock.width();
+    //this.textWidth = textBlock.width();
     this.desiredWidth = desiredWidth;
     input = textBlock;
 
@@ -34,13 +34,18 @@ public class CenteredBlock
   public String row(int i)
     throws Exception
   {
-    if (i < 0 || i > this.height)
+    if (i < 0 || i > this.input.height())
       {
         throw new Exception("The row is out of bounds.");
       }
 
-    String text = this.input.row(i).substring(0, this.textWidth);
-    int difference = ((this.desiredWidth - this.textWidth) / 2);
+    String text = input.row(i);
+    int textLength = text.length();
+    if (this.desiredWidth < textLength)
+      {
+        this.desiredWidth = textLength;
+      }
+    int difference = ((this.desiredWidth - textLength) / 2);
     String buffer = "";
     for (int j = 0; j < difference; j++)
       {

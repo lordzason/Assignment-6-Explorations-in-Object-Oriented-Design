@@ -49,7 +49,7 @@ public class BoxedBlock
     // The top and bottom of the box
     if ((i == 0) || (i == h + 1))
       {
-        return "+" + TBUtils.dashes(this.contents.width()) + "+";
+        return "+" + TBUtils.dashes(this.contents.row(i).length()) + "+";
       }
     // Stuff within the box
     else if ((i > 0) && (i <= h))

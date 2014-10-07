@@ -41,8 +41,7 @@ public class RightJustified
       {
         throw new Exception("Cannot get row outside of bounds.");
       }
-
-    String newText = this.block.row(i).toString().replaceAll(" ","");
+    String newText = this.block.row(i).toString().replaceAll(" ", "");
     int diff = this.desiredWidth - newText.length();
     String buffer = "";
     for (int j = 0; j < diff; j++)

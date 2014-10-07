@@ -67,4 +67,13 @@ public class TextLine
     return this.line.length();
   } // width()
 
+  /**
+   * Set the contents of a block to the new value.
+   */
+  public void setContents(String newContents)
+  {
+    this.line = newContents;
+    return;
+  }
+  
 } // class TextLine
