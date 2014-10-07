@@ -3,31 +3,56 @@ package com.farevee.groceries;
 public class BulkContainer
     extends BulkItem
 {
-  /*Fields*/
+
+  //+--------+------------------------------------------------------
+  // | Fields |
+  // +--------+
+
+  /**
+   * The name of the container to hold BulkItem.
+   */
   String container;
 
-  /*Constructor*/
+  // +--------------+------------------------------------------------
+  // | Constructor |
+  // +--------------+
   public BulkContainer(String containerName, BulkFood food, Units unit,
                        int amount)
   {
     super(food, unit, amount);
     this.container = containerName;
-  }
+  }//BulkContainer(String, Bulkfood, Units, int)
 
-  /*Methods*/
-  //Information about the BulkContainer in a string
+  //+-----------+---------------------------------------------------
+  // | Methods  |
+  // +-----------+
+
+  /**
+   * Retrieve information about the BulkContainer in a string
+   */
   @Override
   public String toString()
   {
     return (this.container + " of " + this.amount + " " + this.unit.plural
             + " of " + this.food.name);
-  }
+  }//toString()
 
-  //Compares two BulkContainer
-  public boolean equals(BulkContainer anotherBulkContainer)
+  /**
+   * Compares two BulkContainer
+   */
+  public boolean equals(Object thing)
   {
-    return ((this.food.equals(anotherBulkContainer.food)) 
-        && (this.container.compareTo(anotherBulkContainer.container) == 0));
-  }
+    if (thing instanceof BulkContainer)
+      {
+        BulkContainer anotherBulkContainer = (BulkContainer) thing;
+
+        return ((this.food.equals(anotherBulkContainer.food)) && (this.container.compareTo(anotherBulkContainer.container) == 0));
+      }
+    else
+      {
+        return Boolean.FALSE;
+      }
+
+  }//equals(Item)
 
 }

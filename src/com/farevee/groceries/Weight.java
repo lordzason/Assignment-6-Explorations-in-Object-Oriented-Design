@@ -2,17 +2,23 @@ package com.farevee.groceries;
 
 public class Weight
 {
-/*Fields*/
+  //+--------+------------------------------------------------------
+  // | Fields |
+  // +--------+
   Units unit;
   int amount;
-  
-  /*Constructor*/
+
+  //+--------------+------------------------------------------------
+  // | Constructor |
+  // +--------------+
   public Weight(Units unit, int amount)
   {
     this.unit = unit;
     this.amount = amount;
   }
-  
-  /*Method*/
-  
+
+  //+-----------+---------------------------------------------------
+  // | Methods  |
+  // +-----------+
+
 }

@@ -16,14 +16,16 @@ public class ShoppingExperience
   public static void main(String[] args)
   {
     PrintWriter pen = new PrintWriter(System.out, true);
+
     Cart cart = new Cart();
 
     //The store has 20 pounds of bananas, priced at 50 cents per pound
     BulkFood bananas = new BulkFood("bananas", Units.POUND, 50, 20);
     // The store has 200 grams of saffron, priced at 1000 cents per gram
     BulkFood saffron = new BulkFood("saffron", Units.GRAM, 1000, 200);
-    // The store has 200 grams of spicyspice, priced at 1000 cents per kilogram
-    BulkFood spicyspice = new BulkFood("spicyspice", Units.KILOGRAM, 1000, 200);
+
+    // The customer adds three pounds of bananas to the cart
+    cart.addItem(new BulkItem(bananas, Units.POUND, 3));
 
     // The customer adds three pounds of bananas to the cart
     cart.addItem(new BulkItem(bananas, Units.POUND, 3));
@@ -31,8 +33,17 @@ public class ShoppingExperience
     // The customer adds a jar of 3 grams of saffron to the cart
     cart.addItem(new BulkContainer("jar", saffron, Units.GRAM, 3));
 
+    // The customer adds a jar of 3 grams of saffron to the cart
+    cart.addItem(new BulkContainer("jar", saffron, Units.GRAM, 3));
+
     // The customer adds a bag of 1 gram of saffron to the cart
     cart.addItem(new BulkItem(saffron, Units.GRAM, 1));
+
+    // The customer adds a bag of 1 gram of saffron to the cart
+    cart.addItem(new BulkItem(saffron, Units.GRAM, 1));
+
+    // The customer adds a can opener to the cart, priced $3.489.
+    cart.addItem(new NonFood("can opener", new Weight(Units.OUNCE, 2), 349));
 
     // The customer adds a can opener to the cart, priced $3.489.
     cart.addItem(new NonFood("can opener", new Weight(Units.OUNCE, 2), 349));
@@ -40,34 +51,21 @@ public class ShoppingExperience
     // The customer adds a box of oreos to the cart
     cart.addItem(new Package("oreos", new Weight(Units.OUNCE, 12), 399));
 
-    // The customer adds another box of oreos to the cart
+    // The customer adds a box of oreos to the cart
     cart.addItem(new Package("oreos", new Weight(Units.OUNCE, 12), 399));
 
-    // The customer adds five 6oz packages of macncheez to the cart, each 
+    // The customer adds five 6kg packages of macncheez to the cart, each 
     // priced at 77 cents.
     cart.addItem(new ManyPackages(new Package("macncheez",
-                                              new Weight(Units.OUNCE, 6), 77),
+                                              new Weight(Units.KILOGRAM, 6), 77),
                                   5));
 
-    // The customer adds a package of macncheez
-    cart.addItem(new Package("macncheez", new Weight(Units.OUNCE, 6), 77));
-
-    // The customer adds five 6oz packages of tea to the cart
-    cart.addItem(new ManyPackages(new Package("tea",
-                                              new Weight(Units.OUNCE, 6), 100),
+    // The customer adds five 6kg packages of macncheez to the cart, each 
+    // priced at 77 cents.
+    cart.addItem(new ManyPackages(new Package("macncheez",
+                                              new Weight(Units.KILOGRAM, 6), 77),
                                   5));
-
-    // The customer adds five 6oz packages of tea to the cart
-    cart.addItem(new ManyPackages(new Package("tea",
-                                              new Weight(Units.OUNCE, 6), 100),
-                                  5));
-
-    // The customer adds a bag of 1 kilogram of spicyspice to the cart
-    cart.addItem(new BulkItem(spicyspice, Units.KILOGRAM, 1));
-
-    // The customer adds a bag of 1 kilogram of spicyspice to the cart
-    cart.addItem(new BulkItem(spicyspice, Units.KILOGRAM, 1));
-
+    
     cart.printContents(pen);
     pen.println("There are " + cart.numThings() + " things in the cart.");
     pen.println("There are " + cart.numEntries() + " entries in the cart.");
@@ -77,7 +75,7 @@ public class ShoppingExperience
     pen.println("The total weight of kilograms is " + cart.getWeight()[2]);
     pen.println("The total weight of grams is " + cart.getWeight()[3]);
 
-    pen.println("\nMerging");
+    pen.println("\nMerging\n");
     cart.merge();
     cart.printContents(pen);
     pen.println("There are " + cart.numThings() + " things in the cart.");
@@ -87,7 +85,6 @@ public class ShoppingExperience
     pen.println("The total weight of ounces is " + cart.getWeight()[1]);
     pen.println("The total weight of kilograms is " + cart.getWeight()[2]);
     pen.println("The total weight of grams is " + cart.getWeight()[3]);
-    
-  }
 
+  }
 }

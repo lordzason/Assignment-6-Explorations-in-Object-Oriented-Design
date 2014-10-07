@@ -37,14 +37,15 @@ public class NonFood
   }
 
   //Compares two NonFood
-  public boolean equals(NonFood anotherNonFood)
+  public boolean equals(Object thing)
   {
-    if (((this.name).compareTo(anotherNonFood.name) == 0)
-        && ((this.weight.unit).equals(anotherNonFood.weight.unit))
-        && ((this.weight.amount) == (anotherNonFood.weight.amount))
-        && (this.price == anotherNonFood.price))
+    if (thing instanceof NonFood)
       {
-        return Boolean.TRUE;
+        NonFood anotherNonFood = (NonFood) thing;
+
+        return (((this.name).compareTo(anotherNonFood.name) == 0)
+                && ((this.weight.unit).equals(anotherNonFood.weight.unit))
+                && ((this.weight.amount) == (anotherNonFood.weight.amount)) && (this.price == anotherNonFood.price));
       }
     else
       {
@@ -70,6 +71,6 @@ public class NonFood
   @Override
   public String getName()
   {
-   return this.name;
+    return this.name;
   }
 }

@@ -3,18 +3,25 @@ package com.farevee.groceries;
 public class ManyPackages
     implements Item
 {
-  /*Fields*/
+
+  //+--------+------------------------------------------------------
+  // | Fields |
+  // +--------+
   Package type;
   int count;
 
-  /*Constructor*/
+  //+--------------+------------------------------------------------
+  // | Constructor |
+  // +--------------+
   public ManyPackages(Package type, int count)
   {
     this.type = type;
     this.count = count;
   }
 
-  /*Methods*/
+  //+-----------+---------------------------------------------------
+  // | Methods  |
+  // +-----------+
   //Get the Weight of ManyPackages, including unit and amount
   public Weight getWeight()
   {
@@ -36,11 +43,12 @@ public class ManyPackages
   }
 
   //Compares two ManyPackages
-  public boolean equals(ManyPackages manyManyPackages)
+  public boolean equalZ(Object thing)
   {
-    if (this.type == manyManyPackages.type)
+    if (thing instanceof ManyPackages)
       {
-        return Boolean.TRUE;
+        ManyPackages manyManyPackages = (ManyPackages) thing;
+        return (this.type.equals(manyManyPackages.type));
       }
     else
       {
@@ -80,4 +88,10 @@ public class ManyPackages
   {
     return this.type;
   }
+  
+  public void addPackage(int amount)
+  {
+    this.count += amount;
+  }
+  
 }

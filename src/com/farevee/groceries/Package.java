@@ -26,16 +26,20 @@ public class Package
   }
 
   //Compares two Package
-  public boolean equals(Package anotherPackage)
+  public boolean equals(Object thing)
   {
-    if ((this.name.compareTo(anotherPackage.name) == 0)
-        && ((this.getWeight().unit).equals(anotherPackage.getWeight().unit))
-        && ((this.getWeight().amount) == (anotherPackage.getWeight().amount))
-        && (this.getPrice() == anotherPackage.getPrice()))
+    if (thing instanceof Package)
       {
-        return Boolean.TRUE;
+        Package anotherPackage = (Package) thing;
+
+        return ((this.name.compareTo(anotherPackage.name) == 0)
+                && ((this.getWeight().unit).equals(anotherPackage.getWeight().unit))
+                && ((this.getWeight().amount) == (anotherPackage.getWeight().amount)) && (this.getPrice() == anotherPackage.getPrice()));
       }
-    return Boolean.FALSE;
+    else
+      {
+        return Boolean.FALSE;
+      }
   }
 
   //Get the Weight, unit and amount
@@ -70,6 +74,6 @@ public class Package
   @Override
   public String getName()
   {
-  return this.name;
+    return this.name;
   }
 }

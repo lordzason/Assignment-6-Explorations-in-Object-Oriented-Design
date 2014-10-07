@@ -79,9 +79,6 @@ public class TBExpt
     TextBlock blockPair =
         new BoxedBlock(new BlockPair(vTogether1));
     TBUtils.print(pen, blockPair);
-    TextBlock blockPair1 =
-        new BoxedBlock(new BlockPair(centeredBlock3));
-    TBUtils.print(pen, blockPair1);
     
     // Clean up after ourselves.
     pen.close();
