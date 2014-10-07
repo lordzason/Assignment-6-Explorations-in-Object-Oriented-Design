@@ -46,17 +46,6 @@ public class Cart
    */
   int numberOfThings = 0;
 
-  /**
-   * A count for the number of entries, each package is an entry
-  
-  int numberOfEntries = 0;
-  */
-
-  /**
-   * The total price for the items in the shopping cart
-  int totalPrice = 0;
-  */
-
   //+--------------+------------------------------------------------
   // | Constructor |
   // +--------------+
