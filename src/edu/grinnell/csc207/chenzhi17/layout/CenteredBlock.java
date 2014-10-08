@@ -43,7 +43,7 @@ public class CenteredBlock
     int textLength = text.length();
     if (this.desiredWidth < textLength)
       {
-        this.desiredWidth = textLength;
+        throw new Exception("The desired width is less than the size of your text");
       }
     int difference = ((this.desiredWidth - textLength) / 2);
     String buffer = "";
